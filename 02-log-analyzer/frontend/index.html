@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogVigil | Cybersecurity Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>LogVigil</h2>
+        <nav>
+            <ul>
+                <li class="active">Dashboard</li>
+                <li>Live Logs</li>
+                <li>Threat Map</li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="content">
+        <header>
+            <h1>System Security Overview</h1>
+            <span id="status" class="status-online">System Live</span>
+        </header>
+
+        <section class="stats-container">
+            <div class="card">
+                <h3>Total Events</h3>
+                <p id="total-events">0</p>
+            </div>
+            <div class="card alert">
+                <h3>Suspicious Activities</h3>
+                <p id="alert-count">0</p>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <canvas id="threatChart"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
