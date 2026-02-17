@@ -1,12 +1,11 @@
-import java.nio.file.*;
 import java.io.*;
-import java.util.stream.Collectors;
+import java.nio.file.*;
 
 public class LogProcessor {
     public static void main(String[] args) throws Exception {
         // Folders to watch and move to
-        Path rawDir = Paths.get("./logs/raw");
-        Path processedDir = Paths.get("./logs/processed");
+        Path rawDir = Paths.get("logs/raw");
+        Path processedDir = Paths.get("logs/processed");
 
         System.out.println("Java Log Processor started. Watching: " + rawDir);
 
