@@ -1,28 +1,12 @@
-import re
-from flask import Flask, jsonify, render_template
-
-app = Flask(__name__)
-
-# Example Regex to find failed SSH logins
-FAILED_LOGIN_PATTERN = r"Failed password for .* from (\d+\.\d+\.\d+\.\d+)"
+import os
 
 @app.route('/api/logs')
 def get_logs():
-    data = {"failed_attempts": 0, "attacker_ips": []}
+    processed_path = './logs/processed'
+    all_threats = []
     
-    # In a real scenario, you'd open /var/log/auth.log
-    with open('mock_logs.txt', 'r') as f:
-        for line in f:
-            match = re.search(FAILED_LOGIN_PATTERN, line)
-            if match:
-                data["failed_attempts"] += 1
-                data["attacker_ips"].append(match.group(1))
-                
-    return jsonify(data)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    # Python reads every "cleaned" file Java created
+    for filename in os.listdir(processed_path):
+        with open(os.path.join(processed_path, filename), 'r') as f:
+            # Your regex parsing logic here...
+            pass
